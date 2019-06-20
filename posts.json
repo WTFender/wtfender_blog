@@ -1,0 +1,34 @@
+[
+    {
+        "pid": 1,
+        "title": "F5 WAF Syslog Parser",
+        "date": "July 28, 2017",
+        "file": "f5_parser.md",
+        "img": "f5_parser.png",
+        "desc": "Regex to parse F5 WAF syslog violations."
+    },
+    {
+        "pid": 2,
+        "title": "LogRhythm to Slack Webhooks",
+        "date": "September 7, 2017",
+        "file": "lr_webhooks.md",
+        "img": "lr_webhooks.png",
+        "desc": "Powershell scripts to send LogRhythm alarms to Slack."
+    },
+    {
+        "pid": 3,
+        "title": "SSH Tunneling & Network Pivoting",
+        "date": "October 14, 2017",
+        "file": "ssh_tunneling.md",
+        "img": "ssh_tunnel.png",
+        "desc": "An explanation of tunneling via SSH with plenty of examples."
+    },
+    {
+        "pid": 4,
+        "title": "Simple libssh Detection",
+        "date": "October 18, 2018",
+        "file": "libssh.md",
+        "img": "libssh.png",
+        "desc": "Quick script to find libssh on your network."
+    }
+]
