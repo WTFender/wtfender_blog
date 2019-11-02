@@ -1,12 +1,9 @@
-{% extends "bootstrap/base.html" %}
-
-{% block title %}
-{{super()}}
-wtfender.com
-{% endblock %}
 
 {% block head %}
-{{super()}}
+<title>
+    wtfender.com
+</title>
+
 <!-- Google Analytics -->
 <script src="https://www.googletagmanager.com/gtag/js?id=UA-61995477-2" async></script>
 <script>
@@ -16,32 +13,111 @@ wtfender.com
   gtag('config', 'UA-61995477-2');
 </script>
 
-<!-- navbar -->
-<nav class="navbar navbar-default">
-		<div class="navbar-header">
-				<a class="navbar-brand" href="/">
-					<img alt="" id="wtfender" height="60px" src="/static/img/banner/home.svg">
-				</a>
-				<a class="navbar-brand" href="/">
-					<img alt="" id="block" height="60px" src="/static/img/banner/block.svg">
-				</a>
-  
-			</div>
-	<div class="container-fluid">
-		<div class="navbar-right">
-			<a class="navbar-brand" href="http://linkedin.com/in/michaelmcintyre5/">
-				<img height="60px" class="social" src="/static/img/banner/linkedin.svg">
-			</a>
-			<a class="navbar-brand" href="https://github.com/WTFender/">
-				<img height="60px" class="social" src="/static/img/banner/github.svg">
-			</a>
-		</div>
-	</div>
-</nav>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <!-- Title -->
+    <title>Vizew - Blog &amp; Magazine HTML Template</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="img/core-img/favicon.ico">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+
+	<!-- ##### All Javascript Script ##### -->
+    <!-- jQuery-2.2.4 js -->
+    <script src="js/jquery/jquery-2.2.4.min.js"></script>
+    <!-- Popper js -->
+    <script src="js/bootstrap/popper.min.js"></script>
+    <!-- Bootstrap js -->
+    <script src="js/bootstrap/bootstrap.min.js"></script>
+    <!-- All Plugins js -->
+    <script src="js/plugins/plugins.js"></script>
+    <!-- Active js -->
+    <script src="js/active.js"></script>
+
+    <!-- Preloader -->
+    <div class="preloader d-flex align-items-center justify-content-center">
+        <div class="lds-ellipsis">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+
+    <!-- ##### Header Area Start ##### -->
+    <header class="header-area">
+        <!-- Top Header Area -->
+
+
+<!-- Navbar Area -->
+
+        <div class="vizew-main-menu" id="sticker">
+            <div class="classy-nav-container breakpoint-off">
+                <div class="container">
+					
+
+                    <!-- Menu -->
+                    <nav class="classy-navbar justify-content-between" id="vizewNav">
+
+                        <!-- Nav brand -->
+                        <a href="index.html" class="nav-brand"><img src="/static/img/banner/home.svg" alt=""></a>
+                       
+
+                        <!-- Navbar Toggler -->
+                        <div class="classy-navbar-toggler">
+                            <span class="navbarToggler"><span></span><span></span><span></span></span>
+                        </div>
+
+                        <div class="classy-menu">
+
+                            <!-- Close Button -->
+                            <div class="classycloseIcon">
+                                <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
+                            </div>
+
+
+
+                            <!-- Nav Start -->
+                            <div class="classynav">
+                        
+                                <ul>
+                                    <li class="active"><a href="index.html">Home</a></li>
+                                    <li><a href="archive-list.html">Archives</a></li>
+                                    <li><a href="#">Pages</a>
+                                        <ul class="dropdown">
+                                            <li><a href="index.html">- Home</a></li>
+                                            <li><a href="archive-list.html">- Archive List</a></li>
+                                            <li><a href="archive-grid.html">- Archive Grid</a></li>
+                                            <li><a href="single-post.html">- Single Post</a></li>
+                                            <li><a href="video-post.html">- Single Video Post</a></li>
+                                            <li><a href="contact.html">- Contact</a></li>
+                                            <li><a href="typography.html">- Typography</a></li>
+                                            <li><a href="login.html">- Login</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+
+                                    
+                            <!-- Nav End -->
+                        </div>
+
+                        <a href="index.html" class="nav-brand"><img src="static/img/banner/github.svg" alt=""></a>
+                    </nav>
+                </div>
+            </div>
+        </div>
+        
 {% endblock %}
 
-{% block styles %}
-<link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Slab|Roboto+Mono|IBM+Plex+Sans|IBM+Plex+Sans+Condensed|IBM+Plex+Serif" rel="stylesheet">
-<link href="/static/css/theme.css" rel="stylesheet">
-<link href="/static/css/theme-overrides.css" rel="stylesheet">
+{% block content %}
+<body>
+    {{ post_html|safe }}
+</body>
 {% endblock %}
