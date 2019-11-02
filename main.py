@@ -1,13 +1,8 @@
 #!/usr/bin/env python3
-from flask import Flask, Response, jsonify, request, render_template, send_file, send_from_directory
-#from flask_bootstrap import Bootstrap
-from deploy import deploy
-from os import environ
-import markdown
+from flask import Flask, request, render_template, send_from_directory
+#from deploy import deploy
 import logging
-import json
 import yaml
-import os
 
 log = logging.getLogger(__name__)
 app = Flask(__name__)
@@ -31,20 +26,7 @@ def send_static(path):
 
 @app.route("/")
 def send_home():
-    return render_template('layout.html', html='home page')
-
-@app.route("/test")
-def send_test():
-    #return render_template('index.html')
-    with open("posts/example.html", "r") as f:
-        post_html = f.read()
-    return render_template('layout.html', html=post_html)
-
-@app.route("/profile")
-def send_profile():
-    with open(f"pages/profile.html", "r") as f:
-        post_html = f.read()
-    return render_template('layout.html', html=post_html)
+    return render_template('home.html', posts=posts)
 
 @app.route("/<any({}):path>".format(str(post_paths)[1:-1]))
 def send_post(path):
@@ -52,7 +34,8 @@ def send_post(path):
         if p['Link'] == path:
             with open(f"posts/{p['File']}", "r") as f:
                 post_html = f.read()
-    return render_template('layout.html', html=post_html)
+                print(post_html)
+    return render_template('post.html', html=post_html)
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=8080, debug=True)
+    app.run(host='127.0.0.1', port=8080, debug=True)

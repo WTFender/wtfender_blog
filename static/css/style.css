@@ -9,6 +9,17 @@
 @import url(owl.carousel.min.css);
 @import url(animate.css);
 @import url(magnific-popup.css);
+@import url(gist.css);
+
+.navbar-header {
+  float: left;
+  padding: 15px;
+  text-align: center;
+  width: 100%;
+}
+.navbar-brand {float:none;}
+
+
 * {
   margin: 0;
   padding: 0; }

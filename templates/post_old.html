@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+
+{% block scripts %}
+{{super()}}
+<!-- update header -->
+<script>
+    $('#wtfender').attr("src", "/static/img/banner/blog.svg");
+</script>
+{% endblock %}
+
+{% block styles %}
+{{super()}}
+<!-- gist embed formatting -->
+<link href="/static/css/gist.css" rel="stylesheet">
+<style>
+	h2 {
+		background: #3498db;
+		padding: 10px;
+	}
+	p {
+		padding: 5px;
+	}
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+	<div align=center class="row" style="line-height: .5">
+		<!-- post title -->
+		<h1 align=center>{{ post_title|safe }}</h1>
+		<!-- post date -->  
+		<p align=center style="font-size: 20px;color: #555;">{{ post_date|safe }}</p>
+		<br>
+		{% if post_img %}
+		<img src="/static/img/{{ post_img|safe }}"></img>
+		<br><br>
+		{% endif %}
+  	</div>
+	<!-- post content -->
+	<p id="post_content">{{ post_content|safe }}</p>
+</div>
+{% endblock %}
