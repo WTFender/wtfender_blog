@@ -2,13 +2,13 @@
 /* :: 1.0 Import Fonts */
 @import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900");
 /* :: 2.0 Import All CSS Plugins */
-@import url(css/bootstrap.min.css);
-@import url(css/classy-nav.css);
-@import url(css/font-awesome.min.css);
-@import url(css/themify-icons.css);
-@import url(css/owl.carousel.min.css);
-@import url(css/animate.css);
-@import url(css/magnific-popup.css);
+@import url(bootstrap.min.css);
+@import url(classy-nav.css);
+@import url(font-awesome.min.css);
+@import url(themify-icons.css);
+@import url(owl.carousel.min.css);
+@import url(animate.css);
+@import url(magnific-popup.css);
 * {
   margin: 0;
   padding: 0; }

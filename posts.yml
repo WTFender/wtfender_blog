@@ -1,7 +1,19 @@
 - Name: Test Post
   File: example.html
-  Link: test
+  Link: test2
+  
+- Name: F5 WAF Syslog Parser
+  File: f5-waf-parser.html
+  Link: f5-waf-parser
 
-- Name: Second Post
-  File: second.html
-  Link: second
+- Name: LogRhythm to Slack Webhooks
+  File: logrhythm-webhooks.html
+  Link: logrhythm-webhooks
+
+- Name: SSH Tunneling & Network Pivoting
+  File: ssh-tunneling.html
+  Link: ssh-tunneling
+
+- Name: Simple libssh Detection
+  File: libssh-detection.html
+  Link: libssh-detection
