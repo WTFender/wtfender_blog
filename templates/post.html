@@ -1,42 +1,37 @@
 {% extends "layout.html" %}
 
-{% block scripts %}
-{{super()}}
-<!-- update header -->
-<script>
-    $('#wtfender').attr("src", "/static/img/banner/blog.svg");
-</script>
-{% endblock %}
-
-{% block styles %}
-{{super()}}
-<!-- gist embed formatting -->
-<link href="/static/css/gist.css" rel="stylesheet">
-<style>
-	h2 {
-		background: #3498db;
-		padding: 10px;
-	}
-	p {
-		padding: 5px;
-	}
-</style>
-{% endblock %}
-
 {% block content %}
+
+<!-- Single Post Area -->
+<br>
 <div class="container">
-	<div align=center class="row" style="line-height: .5">
-		<!-- post title -->
-		<h1 align=center>{{ post_title|safe }}</h1>
-		<!-- post date -->  
-		<p align=center style="font-size: 20px;color: #555;">{{ post_date|safe }}</p>
-		<br>
-		{% if post_img %}
-		<img src="/static/img/{{ post_img|safe }}"></img>
-		<br><br>
-		{% endif %}
-  	</div>
-	<!-- post content -->
-	<p id="post_content">{{ post_content|safe }}</p>
+    <div class="row align-items-center" style="padding-left:10px;padding-right:10px;">
+            <div class="container row justify-content-center" style="text-align: center;"> 
+                    <!-- Post Content -->
+                    <div class="post-content mt-0">
+                        <h1>{{post['name']}}</h1>
+                        <div class="post-meta d-flex align-items-center mb-2 row justify-content-center">
+                            <a class="post-date">{{post['date']}}</a>
+                        </div>
+                        <div align="center">
+                        {% for tag in post['tags'] %}
+                        <a href="#" class="post-cata cata-sm">{{tag}}</a>
+                        {% endfor %}
+                        </div>
+                    </div>
+                </div>
+        <div class="container row justify-content-center">
+            <br>
+            <!-- Post Thumbnail -->
+            <div class="post-thumbnail">
+                <img src="{{post['img']}}" alt="">
+            </div>
+            <br>
+        </div>
+    </div>
+</div>
+<br>
+<div class=container>
+    {% include post['html'] %}
 </div>
 {% endblock %}

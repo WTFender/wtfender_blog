@@ -1,2 +1,5 @@
-
+env/
+.gcloudignore
+.vscode/
 *.pyc
+static/sitemap.xml

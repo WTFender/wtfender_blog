@@ -1,0 +1,27 @@
+<p>Originally posted over at <a href="https://medium.com/@WTFender/aws-temporary-access-tokens-951b3f67e958">Medium.com</a>.</p>
+
+<p>Key management is a nightmare. It started with keys everywhere — then we all started sticking our keys, tokens, and break-glass passwords into a vault or password manager and rotating them accordingly.</p>
+
+<p>Storing secrets has become a business — but how do you manage AWS access tokens for your users?
+
+<p>Developers and engineers regularly need access tokens to use the AWS CLI. These tokens are usually permanent, carry escalated privileges, and are stored on the users’ machines. In some cases, bastion hosts are used to store these tokens, but present the same issue when the private key is stored on the user’s local machine.</p>
+
+<p>Enter temporary access tokens.</p>
+
+<p>Providing users temporary tokens eliminates key rotation and reduces the risk of tokens on compromised systems. The biggest drawback to temporary tokens is figuring out how to provision them to your organization and users.</p>
+
+<p>I recently published AWS STS SAML, a chrome extension, which serves as an example for token provisioning. This extension listens for SSO-based logins to the AWS console and generates access tokens based on the user’s assumed role.</p>
+
+<p>Although you might be hard pressed to have your sensitive developers install a chrome extension for the petty sake of improving security, I hope you find a way to iterate on this example and establish temporary tokens as a standard.</p>
+
+<div class="section-heading style-2 mb-30">
+    <h4>Try it out</h4>
+    <div class="line"></div>
+    <ul><p>
+        <p>
+<li>Install <a href="https://chrome.google.com/webstore/detail/aws-sts-saml/gpnbopdmcfpijadjcnfblkpigjngobgl">AWS STS SAML extension</a> from the Chrome store.</li>
+<li>Install <a href="https://github.com/WTFender/awsstssaml">AWS STS SAML host app</a> from GitHub</li>
+<li><img src="/static/img/aws-sts-saml-extension.jpg"></li>
+    </ul>
+</div>
+

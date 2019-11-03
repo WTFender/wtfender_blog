@@ -1,0 +1,73 @@
+posts:
+  aws-sts-saml:
+    name: AWS Temporary Access Tokens
+    date: October 20, 2019
+    html: posts/aws-sts-saml.html
+    img: static/img/aws-sts-saml.png
+    tags:
+      - AWS
+      - SAML
+      - Chrome
+    badge: New
+    desc: >
+      Generate temporary AWS access tokens from an SSO login to the AWS console.
+
+  steam-scanner:
+    name: Steam Scanner
+    date: May 1, 2019
+    html: posts/steam-scanner.html
+    img: static/img/steam-scanner.png
+    tags:
+      - Steam
+      - Python
+    desc: >
+      A Steam profile scanners that identifies malicious profiles. 
+
+
+  libssh-detection:
+    name: Simple libssh Detection
+    date: October 18, 2018
+    html: posts/libssh-detection.html
+    img: static/img/libssh.jpg
+    tags:
+      - Bash
+    desc: >
+      Quick script to find libssh on your network.
+
+  ssh-tunneling:
+    name: SSH Tunneling & Network Pivoting
+    date: October 14, 2017
+    html: posts/ssh-tunneling.html
+    img: static/img/ssh_tunnel.png
+    tags:
+      - SSH
+      - Proxy
+    desc: >
+      An explanation of tunneling via SSH with plenty of examples.
+
+  f5-waf-parser:
+    name: F5 WAF Syslog Parser
+    date: July 28, 2017
+    html: posts/f5-waf-parser.html
+    img: static/img/f5_parser.png
+    tags:
+      - Regex
+    desc: >
+      Regex to parse F5 WAF syslog violations.
+
+  logrhythm-webhooks:
+    name: LogRhythm to Slack Webhooks
+    date: September 7, 2017
+    html: posts/logrhythm-webhooks.html
+    img: static/img/lr_webhooks.png
+    tags:
+      - Powershell
+    desc: >
+      Powershell scripts to send LogRhythm alarms to Slack.
+
+pages:
+  example:
+    name: ""
+    date: ""
+    html: ""
+    img: ""

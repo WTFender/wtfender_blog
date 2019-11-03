@@ -1,0 +1,46 @@
+<div class="section-heading style-2 mb-30">
+    <h4>Steps</h4>
+    <div class="line"></div>
+    <ul>
+<li>1. Add a webhook to your Slack team.</li>
+<li>2. Create your AIE alarm with fields that you want to pass to your webhook.</li>
+<li>3. Create a powershell script accepting the fields as parameters:</li>
+    </ul>
+</div>
+<script src="https://gist.github.com/WTFender/aad9eee612dab9a012a256be93da54bc.js?file=basic.ps1"></script>
+
+<p>4. Create the actions.xml manifest with the same parameters/fields:</p>
+
+<script src="https://gist.github.com/WTFender/aad9eee612dab9a012a256be93da54bc.js?file=actions.xml"></script>
+
+<p>5. Create your SmartResponse Plugin using the powershell script and manifest.</p>
+
+<p>6. Set your SmartResponse as an action to your AIE alarm, mapping the correct parameters:</p>
+
+<p><img src="/static/img/lr_webhooks2.png"></p>
+
+<p>7. Trigger your alarm and observe the webhook:</p>
+
+<p><img src="/static/img/lr_webhooks3.png"></p>
+
+<h2 >Better Alarm Examples</h2>
+
+<p><a href="https://github.com/WTFender/logrhythm-slack-webhooks/blob/master/better%20examples/privileged-user-group-change/privileged-user-group-change.ps1">Privileged User GroupChanges</a></p>
+
+<p><img src="/static/img/lr_webhooks4.png"></p>
+
+<p><a href="https://github.com/WTFender/logrhythm-slack-webhooks/blob/master/better%20examples/auth-failure/auth-failure.ps1">Authentication Failures</a></p>
+
+<p><img src="/static/img/lr_webhooks5.png"></p>
+
+<p><a href="https://github.com/WTFender/logrhythm-slack-webhooks/blob/master/better%20examples/suspicious-ip-inbound/suspicious-ip-inbound.ps1">Suspicious IP Inbound</a></p>
+
+<p><img src="/static/img/lr_webhooks6.png"></p>
+
+<p><a href="https://github.com/WTFender/logrhythm-slack-webhooks/blob/master/better%20examples/suspicious-ip-outbound/suspicious-ip-outbound.ps1">Suspicious IP Outbound</a></p>
+
+<p><img src="/static/img/lr_webhooks7.png"></p>
+
+<h3 >Credit</h3>
+
+<p><a href="https://github.com/jgigler/Powershell.Slack">jgigler/Powershell.Slack</a></p>
