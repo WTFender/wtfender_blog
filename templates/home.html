@@ -11,9 +11,6 @@
             <a href="{{p}}" class="post-badge post-cata cata-success cata-sm">
                 <strong>{{posts[p]['badge']}}</strong></a>
             {% endif %}
-            
-            
-
 
             <a href="{{p}}">
                 <div class="row align-items-center">
@@ -30,8 +27,7 @@
                             <div class="post-meta d-flex align-items-center mb-2">
                                 <a href="{{p}}" class="post-date">{{posts[p]['date']}}</a>
                             </div>
-                            <p class="mb-2">Quisque mollis tristique ante. Proin ligula eros, varius id tristique sit
-                                amet, rutrum non ligula.</p>
+                            <p class="mb-2">{{posts[p]['desc']}}</p>
                             {% for tag in posts[p]['tags'] %}
                             <a href="{{p}}" class="post-cata cata-sm">{{tag}}</a>
                             {% endfor %}
