@@ -2,8 +2,27 @@
 
 <p>Download: <a href="https://raw.githubusercontent.com/WTFender/libssh_finder/master/libssh_finder.sh">libssh_finder.sh</a></p>
 
-<script src="https://gist.github.com/WTFender/0e95f7d666414b0edf5231e9458b2c79.js?file=libssh_finder.sh"></script>
-
-<p>Output:</p>
-
-<script src="https://gist.github.com/WTFender/0e95f7d666414b0edf5231e9458b2c79.js?file=output.sh"></script>
+<pre><code class="bash"># Specify which ports to check for SSH servers
+for port in 22 2022 2222
+do
+        # Substitute your target subnets and hosts
+        for ip in 192.168.{0..10}.{0.255}
+        do
+                echo "$ip:$port" >> results.txt
+                # Banner grab with netcat (adjust -w for timeout)
+                echo "" | nc -q0 -w2 ${ip} ${port} >> results.txt
+        done
+done
+ 
+# Display libssh findings
+grep -i libssh -B1 results.txt</code></pre>
+Output:
+<pre><code class="bash">192.168.0.101:22
+SSH-2.0-libssh_0.7.0
+--
+192.168.1.5:2022
+SSH-2.0-libssh_0.7.0
+--
+192.168.10.10:2222
+SSH-2.0-libssh_0.7.0
+</code></pre>

@@ -1,4 +1,17 @@
 posts:
+  build-flask-site:
+    name: Building My Site in Flask
+    date: November 3, 2019
+    html: posts/build-flask-site.html
+    img: static/img/build-flask-site.png
+    tags:
+      - Flask
+      - Python
+      - GAE
+    badge: New
+    desc: >
+      An example of building basic Flask sites in Google App Engine.
+
   aws-sts-saml:
     name: AWS Temporary Access Tokens
     date: October 20, 2019

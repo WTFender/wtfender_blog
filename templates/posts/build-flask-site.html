@@ -1,0 +1,207 @@
+<p>This is a how-to for building simple sites in Flask. If you want a quick personal blog, I'd recommend deploying a pre-built WordPress instance on Google Cloud or AWS. In my case, I wanted to get a little more experience with Flask and general web development, so I built a basic blog in Flask. This could easily serve as an example for deploying APIs on Google App Engine.</p>
+
+<div class="section-heading style-2 mb-30">
+        <h4>Getting started</h4>
+        <div class="line"></div>
+</div>
+<p>First, you'll need flask.
+<pre><code class="bash">pip install flask</code></pre></p> 
+<p>A boilerplate flask app looks like this. Serve <code>index.html</code> on <code>/test</code>.</p>
+<pre><code class="python">from flask import Flask, send_from_directory
+
+app = Flask(__name__)
+
+@app.route("/test")
+def index():
+    return send_from_directory('static', 'index.html')
+
+if __name__ == '__main__':
+    app.run(host='127.0.0.1', port=8080, debug=True)</code></pre>
+
+<p>Below are are additional examples for URL routing. <code>send_static()</code> serves any and all files from the static directory using the URL path as a variable. <code>send_post()</code> only serves URLs from <code>myList</code>.</p>
+
+
+{% set escaped2 = "@app.route('/static/<path:path>')
+def send_static(path):
+    return send_from_directory('static', path)
+
+myList = ['post1', 'post2', 'post3']
+@app.route('/<any({}):path>''.format(str(myList)[1:-1]))
+def send_post(path):
+    return send_from_directory('posts', path+'.html')" %}
+
+<pre><code class="python">{{escaped2}}</code></pre>
+
+<div class="section-heading style-2 mb-30">
+        <h4>Flask Templates</h4>
+        <div class="line"></div>
+</div>
+
+<p><code>send_from_directory</code> is useful for serving static files, but <code>render_template</code> is better for dynamicly generating pages. Below I pass a variable, <code>myList</code>, to the template <code>index.html</code>. By default, flask looks for templates under <code>static/</code>. Templates have access to python variables and can perform basic functions using the Jinja template engine. Jinja is included with Flask - <a href="https://www.techiediaries.com/flask-tutorial-templates/">check out this article</a> for more about template syntax.</p>
+
+<pre><code class="python">@app.route("/test")
+def index():
+    myList = ['post1', 'post2', 'post3']
+    return render_template('index.html', myList=myList)
+</code></pre>
+
+{% raw %}
+<p>Our template uses special tags <code>{{ variable }}</code> and <code>{% function %}</code> to interact with our <code>posts</code> variable. We've also added <code>{% block content %}</code>, which contains the body of our html page.
+{% endraw %}
+
+{% set escaped = '<!--- static/index.html --->
+{% block content %}
+<ul>
+    {% for p in posts %}
+    <li>
+        {{ p }}
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}
+
+<!--- Output --->
+∙ post1
+∙ post2
+∙ post3' %}
+<pre><code class="html">{{escaped}}</code></pre>
+
+<div class="section-heading style-2 mb-30">
+        <h4>Organizing Pages</h4>
+        <div class="line"></div>
+</div>
+<p>I created a manifest file, <code>paths.yaml</code>, as a list of all the URLs I want to serve. Each path includes a pointer to the html page containing the post/page content. Any other post or URL specific info could be stored here as well, such as post image, author, date, etc.</p>
+
+<pre><code class="yaml"># paths.yaml
+posts:
+    my-first-post:
+        name: My very first post.
+        html: posts/my-first-post.html
+    my-second-post:
+        name: AWS Temporary Access Tokens
+        html: posts/my-second-post.html
+</code></pre>
+
+<p>Flask loads the list of paths as routes and passes the post variable to the template as a variable, depending on the path.</p>
+
+<pre><code class="python">posts = yaml.safe_load(open("paths.yaml","r"))['posts']
+@app.route("/<any({}):path>".format(str(list(posts.keys()))[1:-1]))
+def send_post(path):
+    return render_template('post.html', post=posts[path])
+</code></pre>
+
+<p>Our template, <code>post.html</code>, displays the post's name and displays the post's html.</p>
+
+{% set escaped3 = "{% block content %}
+    {{ post['name'] }}
+    {% include post['html'] %}
+{% endblock %}" %}
+
+<pre><code class="html">{{escaped3}}</code></pre>
+
+<div class="section-heading style-2 mb-30">
+        <h4>Putting it all together</h4>
+        <div class="line"></div>
+</div>
+
+Directory structure:
+<pre><code class="bash">main.py
+paths.yaml
+templates/
+    index.html
+    post.html
+    posts/
+        my-first-post.html
+        my-second-post.html
+</code></pre>
+
+{% set escaped4 = "<p>This is my first post.</p>" %}
+templates/posts/my-first-post.html
+<pre><code class="html">{{escaped4}}</code></pre>
+
+templates/post.html
+<pre><code class="html">{{escaped3}}</code></pre>
+
+{% set escaped5 = "{% block content %}
+<ul>
+    {% for p in posts %}
+    <li>
+        <a href='{{p}}'>{{ p }}</a>
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}" %}
+templates/index.html
+<pre><code class="html">{{escaped5}}</code></pre>
+
+paths.yaml
+<pre><code class="yaml">posts:
+    my-first-post:
+        name: My very first post.
+        html: posts/my-first-post.html
+    my-second-post:
+        name: AWS Temporary Access Tokens
+        html: posts/my-second-post.html
+</code></pre>
+
+main.py
+<pre><code class='python'>{% set escaped6 = "#!/usr/bin/env python3
+from flask import Flask, render_template
+import yaml
+
+app = Flask(__name__)
+posts = yaml.safe_load(open('paths.yaml','r'))['posts']
+
+@app.route('/<any({}):path>'.format(str(list(posts.keys()))[1:-1]))
+def send_post(path):
+    return render_template('post.html', post=posts[path])
+
+@app.route('/')
+def index():
+    return render_template('index.html', posts=posts)
+
+if __name__ == '__main__':
+    app.run(host='127.0.0.1', port=8080, debug=True)" %}{{escaped6}}
+</code></pre>
+
+
+Results:
+<pre><code class='html'>{% set escaped7 = "<!--- curl http://127.0.0.1:8080 --->
+<ul>
+    <li>
+        <a href='my-first-post'>my-first-post</a>
+    </li>
+    <li>
+        <a href='my-second-post'>my-second-post</a>
+    </li>
+</ul>
+
+<!--- curl http://127.0.0.1:8080/my-first-post --->
+My very first post.
+<p>This is my first post.</p>" %}{{escaped7}}</code></pre>
+
+<div class="section-heading style-2 mb-30">
+        <h4>Deploy on GAE</h4>
+        <div class="line"></div>
+</div>
+<p>In order to deploy your app on GAE, you'll just need to add an <code>app.yml</code> and <code>requirements.txt</code> before deploying.</p>
+
+app.yml
+<pre><code class="yaml">service: default
+runtime: python37
+</code></pre>
+
+requirements.txt
+<pre><code class="plaintext">flask==1.0.2
+pyyaml==5.1.2
+gunicorn
+</code></pre>
+
+deploy
+<pre><code class="plaintext">gcloud app deploy .</code></pre>
+
+<div class="section-heading style-2 mb-30">
+        <h4>More Examples</h4>
+        <div class="line"></div>
+</div>
+<p>The <a href="https://github.com/WTFender/wtfender_blog">source for wtfender.com</a> can be viewed on GitHub.</p>

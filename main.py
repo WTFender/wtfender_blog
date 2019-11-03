@@ -63,4 +63,4 @@ def send_post(path):
 if __name__ == '__main__':
     posts.update(pages)
     create_sitemap(posts)
-    app.run(host='0.0.0.0', port=8080)
+    app.run(host='0.0.0.0', port=8080, debug=True)

@@ -7,10 +7,6 @@
         {% for p in posts %}
         <!-- Single Post Area -->
         <div class="single-post-area style-2 post-panel" style="padding-left: 10px; padding-right: 10px">
-            {% if posts[p]['badge'] is defined and posts[p]['badge'] %}
-            <a href="{{p}}" class="post-badge post-cata cata-success cata-sm">
-                <strong>{{posts[p]['badge']}}</strong></a>
-            {% endif %}
 
             <a href="{{p}}">
                 <div class="row align-items-center">
@@ -31,6 +27,10 @@
                             {% for tag in posts[p]['tags'] %}
                             <a href="{{p}}" class="post-cata cata-sm">{{tag}}</a>
                             {% endfor %}
+                            {% if posts[p]['badge'] is defined and posts[p]['badge'] %}
+                            <a href="{{p}}" class="post-cata cata-success cata-sm">
+                                <strong>{{posts[p]['badge']}}</strong></a>
+                            {% endif %}
                         </div>
                     </div>
                 </div>
