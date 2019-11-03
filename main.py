@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 from flask import Flask, request, render_template, send_from_directory
-#from deploy import deploy
 import logging
 import yaml
 
@@ -27,11 +26,15 @@ def send_static(path):
 def send_home():
     return render_template('home.html', posts=posts)
 
-# pages /any('page1', 'page2')
-# posts /any('post1', 'post2')
+# /any('post1', 'post2')
 @app.route("/<any({}):path>".format(str(list(posts.keys()))[1:-1]))
 def send_post(path):
     return render_template('post.html', post=posts[path])
 
+# /any('page1', 'page2')
+# @app.route("/<any({}):path>".format(str(list(pages.keys()))[1:-1]))
+# def send_post(path):
+#     return render_template('post.html', post=pages[path])
+
 if __name__ == '__main__':
-    app.run(host='192.168.0.108', port=8080, debug=True)
+    app.run(host='127.0.0.1', port=8080, debug=True)

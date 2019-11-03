@@ -6,9 +6,7 @@ posts:
     img: static/img/f5_parser.png
     tags:
       - Regex
-      - F5 WAF
     badge: New
-
 
   logrhythm-webhooks:
     name: LogRhythm to Slack Webhooks
@@ -16,9 +14,7 @@ posts:
     html: posts/logrhythm-webhooks.html
     img: static/img/lr_webhooks.png
     tags:
-      - Webhooks
-      - LogRhythm
-      - Slack
+      - Powershell
 
   ssh-tunneling:
     name: SSH Tunneling & Network Pivoting
@@ -27,8 +23,7 @@ posts:
     img: static/img/ssh_tunnel.png
     tags:
       - SSH
-      - Proxies
-      - Firewall
+      - Proxy
 
   libssh-detection:
     name: Simple libssh Detection
@@ -36,12 +31,11 @@ posts:
     html: posts/libssh-detection.html
     img: static/img/libssh.png
     tags:
-      - libSSH
-      - Scanner
+      - Bash
 
 pages:
   example:
-    name: example
-    date: October 11, 2018
-    html: posts/libssh-detection.html
-    img: static/img/libssh.png
+    name: ''
+    date: ''
+    html: ''
+    img: ''
