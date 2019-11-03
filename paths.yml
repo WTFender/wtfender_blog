@@ -1,0 +1,47 @@
+posts:
+  f5-waf-parser:
+    name: F5 WAF Syslog Parser
+    date: July 28, 2017
+    html: posts/f5-waf-parser.html
+    img: static/img/f5_parser.png
+    tags:
+      - Regex
+      - F5 WAF
+    badge: New
+
+
+  logrhythm-webhooks:
+    name: LogRhythm to Slack Webhooks
+    date: September 7, 2017
+    html: posts/logrhythm-webhooks.html
+    img: static/img/lr_webhooks.png
+    tags:
+      - Webhooks
+      - LogRhythm
+      - Slack
+
+  ssh-tunneling:
+    name: SSH Tunneling & Network Pivoting
+    date: October 14, 2017
+    html: posts/ssh-tunneling.html
+    img: static/img/ssh_tunnel.png
+    tags:
+      - SSH
+      - Proxies
+      - Firewall
+
+  libssh-detection:
+    name: Simple libssh Detection
+    date: October 18, 2018
+    html: posts/libssh-detection.html
+    img: static/img/libssh.png
+    tags:
+      - libSSH
+      - Scanner
+
+pages:
+  example:
+    name: example
+    date: October 11, 2018
+    html: posts/libssh-detection.html
+    img: static/img/libssh.png

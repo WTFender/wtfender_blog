@@ -16,7 +16,6 @@ body .gist .highlight {
   background-color: transparent;
   font-family: 'Roboto Mono', monospace;
   font-size: 15px;
-  font-weight: bold;
 }
 
 body .gist .highlight td {
@@ -37,7 +36,8 @@ body .gist .gist-meta {
 }
 
 body .gist .highlight {
-  background: #222627;
+  background: #243037;
+
 }
 body .gist .blob-num,
 body .gist .blob-code-inner,

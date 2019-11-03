@@ -7,10 +7,9 @@ import yaml
 log = logging.getLogger(__name__)
 app = Flask(__name__)
 
-posts = yaml.safe_load(open("posts.yml","r"))
-post_paths = []
-for p in posts:
-    post_paths.append(p['Link'])
+paths = yaml.safe_load(open("paths.yml","r"))
+posts = paths['posts']
+pages = paths['pages']
 
 def error_handler():
     return app.config.get("DEFAULT_ERROR_MESSAGE") 
@@ -28,14 +27,11 @@ def send_static(path):
 def send_home():
     return render_template('home.html', posts=posts)
 
-@app.route("/<any({}):path>".format(str(post_paths)[1:-1]))
+# pages /any('page1', 'page2')
+# posts /any('post1', 'post2')
+@app.route("/<any({}):path>".format(str(list(posts.keys()))[1:-1]))
 def send_post(path):
-    for p in posts:
-        if p['Link'] == path:
-            with open(f"posts/{p['File']}", "r") as f:
-                post_html = f.read()
-                print(post_html)
-    return render_template('post.html', html=post_html)
+    return render_template('post.html', post=posts[path])
 
 if __name__ == '__main__':
-    app.run(host='127.0.0.1', port=8080, debug=True)
+    app.run(host='192.168.0.108', port=8080, debug=True)

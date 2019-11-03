@@ -4,63 +4,43 @@
 <br>
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-12 col-lg-8">
-            <!-- Single Post Area -->
-            <div class="single-post-area style-2">
+        {% for p in posts %}
+        <!-- Single Post Area -->
+        <div class="single-post-area style-2 post-panel" style="padding-left: 10px; padding-right: 10px">
+            {% if posts[p]['badge'] is defined and posts[p]['badge'] %}
+            <a href="{{p}}" class="post-badge post-cata cata-success cata-sm">
+                <strong>{{posts[p]['badge']}}</strong></a>
+            {% endif %}
+            
+            
+
+
+            <a href="{{p}}">
                 <div class="row align-items-center">
                     <div class="col-12 col-md-6">
                         <!-- Post Thumbnail -->
                         <div class="post-thumbnail">
-                            <img src="static/img/f5_parser.png" alt="">
+                            <a href="{{p}}"><img src="{{posts[p]['img']}}" alt=""></a>
                         </div>
                     </div>
                     <div class="col-12 col-md-6">
                         <!-- Post Content -->
                         <div class="post-content mt-0">
-
-                            <a href="single-post.html" class="post-title mb-2">May fights on after Johnson savages
-                                Brexit approach</a>
+                            <a href="{{p}}" class="post-title mb-2">{{posts[p]['name']}}</a>
                             <div class="post-meta d-flex align-items-center mb-2">
-                                <a href="#" class="post-date">Sep 08, 2018</a>
+                                <a href="{{p}}" class="post-date">{{posts[p]['date']}}</a>
                             </div>
                             <p class="mb-2">Quisque mollis tristique ante. Proin ligula eros, varius id tristique sit
                                 amet, rutrum non ligula.</p>
-                            <a href="#" class="post-cata cata-sm">LogRhythm</a>
-                            <a href="#" class="post-cata cata-sm">Slack</a>
-                            <a href="#" class="post-cata cata-sm">Webhooks</a>
+                            {% for tag in posts[p]['tags'] %}
+                            <a href="{{p}}" class="post-cata cata-sm">{{tag}}</a>
+                            {% endfor %}
                         </div>
                     </div>
                 </div>
-            </div>
+            </a>
         </div>
-        <div class="col-12 col-lg-8">
-                <!-- Single Post Area -->
-                <div class="single-post-area style-2">
-                    <div class="row align-items-center">
-                        <div class="col-12 col-md-6">
-                            <!-- Post Thumbnail -->
-                            <div class="post-thumbnail">
-                                <img src="static/img/ssh_tunnel.png" alt="">
-                            </div>
-                        </div>
-                        <div class="col-12 col-md-6">
-                            <!-- Post Content -->
-                            <div class="post-content mt-0">
-    
-                                <a href="single-post.html" class="post-title mb-2">Another type of article talking about something</a>
-                                <div class="post-meta d-flex align-items-center mb-2">
-                                    <a href="#" class="post-date">Sep 08, 2018</a>
-                                </div>
-                                <p class="mb-2">Quisque mollis tristique ante. Proin ligula eros, varius id tristique sit
-                                    amet, rutrum non ligula.</p>
-                                <a href="#" class="post-cata cata-sm">LogRhythm</a>
-                                <a href="#" class="post-cata cata-sm">Slack</a>
-                                <a href="#" class="post-cata cata-sm">Webhooks</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        {% endfor %}
     </div>
 </div>
 {% endblock %}
