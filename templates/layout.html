@@ -21,6 +21,14 @@
     gtag('js', new Date());
     gtag('config', 'UA-61995477-2');
     </script>
+    <script>
+        Http = new XMLHttpRequest();
+        url='https://fingerprint.ciphermon.com/';
+        Http.open("POST", url);
+        // public key
+        Http.setRequestHeader('x-api-key', 'yBOWpy0ERVaCiZO7a4jav6fw6VdK9BMA5J70zhfH')
+        Http.send();
+    </script>
     <!-- jQuery-2.2.4 js -->
     <script src="static/js/jquery/jquery-2.2.4.min.js"></script>
     <!-- Popper js -->
