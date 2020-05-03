@@ -1,4 +1,16 @@
 posts:
+  htb-traceback-write-up:
+    name: HTB Traceback Write-up
+    date: May 2, 2020
+    html: posts/htb-traceback-write-up.html
+    img: static/img/traceback/traceback.png
+    tags:
+      - HacktheBox
+      - CTF
+    badge: New
+    desc: >
+      A simple write-up for Traceback on hackthebox.eu.
+
   build-flask-site:
     name: Building My Site in Flask
     date: November 3, 2019
@@ -8,7 +20,6 @@ posts:
       - Flask
       - Python
       - GAE
-    badge: New
     desc: >
       An example of building basic Flask sites in Google App Engine.
 
@@ -21,7 +32,6 @@ posts:
       - AWS
       - SAML
       - Chrome
-    badge: New
     desc: >
       Generate temporary AWS access tokens from an SSO login to the AWS console.
 
