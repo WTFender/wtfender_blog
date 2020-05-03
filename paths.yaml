@@ -3,7 +3,7 @@ posts:
     name: HTB Traceback Write-up
     date: May 2, 2020
     html: posts/htb-traceback-write-up.html
-    img: static/img/traceback/traceback.png
+    img: static/img/tb-traceback.png
     tags:
       - HacktheBox
       - CTF

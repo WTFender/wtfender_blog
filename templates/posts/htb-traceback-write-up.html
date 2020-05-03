@@ -27,7 +27,7 @@ PORT   STATE SERVICE
 
 <p>I was lost for a bit, but focusing on the message I decided to look for common web shells that might already exist on the server. Once I finally searched for <code>Xh4H</code> and <code>web shell</code> together, I found the intended twitter message linking to a list of web shells.</p>
 
-<p><img style="max-height: 250px;" src="/static/img/traceback/twitter.png"></p>
+<p><img style="max-height: 250px;" src="/static/img/tb-twitter.png"></p>
 
 <p>I cloned the web shell repo and used a curl loop to see if any of the default filenames were found on the server.</p>
 
@@ -47,11 +47,11 @@ HTTP/1.1 200 OK
 
 <p>I quickly found that one of the scripts is on the server. After visiting the web shell <code>10.10.10.181/smevk.php</code>, there is a login page and it uses the credentials hardcoded in the script.</p>
 
-<p><img style="max-height: 250px;" src="/static/img/traceback/login.png"></p>
+<p><img style="max-height: 250px;" src="/static/img/tb-login.png"></p>
 
 <p>The web shell provides a lot of immediate info about our user-level permissions, including our username <code>webadmin</code>, and allows us to run a variety of post-exploitation enumeration scripts.</p>
 
-<p><img style="max-height: 400px;" src="/static/img/traceback/webshell1.png"></p>
+<p><img style="max-height: 400px;" src="/static/img/tb-webshell1.png"></p>
 
 <br>
 <div class="section-heading style-2 mb-30">
@@ -61,7 +61,7 @@ HTTP/1.1 200 OK
 
 <p>I prefer to work from a standard SSH session rather than a web shell, so I add my public SSH key to the current user's <code>~/.ssh/authorized_keys</code> and then SSH to the host.</p>
 
-<p><img style="max-height: 400px;" src="/static/img/traceback/webshell2.png"></p>
+<p><img style="max-height: 400px;" src="/static/img/tb-webshell2.png"></p>
 
 <p><pre><code>ssh webadmin@10.10.10.181
 #################################
