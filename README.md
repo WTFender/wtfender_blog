@@ -1,7 +1,7 @@
 # wtfender_blog
 [wtfender.com](https://wtfender.com)
 
-[wtfender.com/build-flask-site](https://wtfender.com/build-flask-site)
+[wtfender.com/build-flask-site](https://wtfender.com/build-flask-site)  
 ![build-flask-site](site.png)
 
 clone and host locally
